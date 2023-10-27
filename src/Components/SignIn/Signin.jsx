@@ -14,13 +14,12 @@ function Signin() {
             </h2>
             <p className="mt-2text-sm text-white ">
               Don&#x27;t have an account? &nbsp; 
-              <Link 
-                to={'/signup'}
-                className="font-semibold text-blue-600 transition-all duration-200 hover:underline"
-              >
-                Create a free account
-              </Link>
             </p>
+            <Link 
+                to={'/signup'}
+              >
+               <span className="font-semibold text-blue-600 transition-all duration-200 hover:underline">Create a free account</span> 
+              </Link>
             <form action="#" method="POST" className="mt-8">
               <div className="space-y-5">
                 <div>
@@ -64,9 +63,6 @@ function Signin() {
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
                       className="ml-2"
                     >
                       <line x1="5" y1="12" x2="19" y2="12"></line>

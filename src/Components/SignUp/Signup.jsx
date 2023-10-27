@@ -1,7 +1,28 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 function Signup() {
+  
+  const [name, setName] = useState('')
+  const [username, setUsername] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('') 
+
+  let handleFormSubmit = async ()=>{
+    await axios.put('http://localhost:3000/adduser',{
+            name: name,
+            username: username,
+            email: email,
+            password: password,
+            confirmPassword: confirmPassword
+          })
+          .then((res)=>res.json)
+          .then((res)=>console.log(res))
+          .catch((err)=>console.log(err.message))
+  }
+
   return (
     <>
     <section className='h-screen w-full flex bg-cover bg-center bg-no-repeat' 
@@ -14,13 +35,13 @@ function Signup() {
       </h2>
       <p className="mt-2 text-base text-white">
         Already have an account ?
-        <Link
+      </p>
+      <Link
           to={'/signin'}
           className="font-medium text-blue-600 transition-all duration-200 hover:underline"
         >
           <p>Sign In</p>
         </Link>
-      </p>
       <form action="#" method="POST" className="mt-8">
         {/* Full Name */}
         <div className="space-y-5">
@@ -35,13 +56,14 @@ function Signup() {
                 type="text"
                 placeholder="Full Name"
                 id="name"
+                onChange={(e)=>{setName && setName(e.target.value)}}
               />
             </div>
           </div>
 
           {/* Username */}
           <div>
-            <label htmlFor="name" className="text-base font-medium text-white">
+            <label htmlFor="username" className="text-base font-medium text-white">
         
               Username
             </label>
@@ -50,7 +72,8 @@ function Signup() {
                 className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed text-white  disabled:opacity-50"
                 type="text"
                 placeholder="User Name"
-                id="name"
+                id="username"
+                onChange={(e)=>{setUsername && setUsername(e.target.value)}}
               />
             </div>
           </div>
@@ -65,6 +88,7 @@ function Signup() {
                 type="email"
                 placeholder="Email"
                 id="email"
+                onChange={(e)=>{setEmail && setEmail(e.target.value)}}
               />
             </div>
           </div>
@@ -81,6 +105,7 @@ function Signup() {
                 type="password"
                 placeholder="Password"
                 id="password"
+                onChange={(e)=>{setPassword && setPassword(e.target.value)}}
               />
             </div>
           </div>
@@ -88,7 +113,7 @@ function Signup() {
           {/* Confirm Password */}
           <div>
             <div className="flex items-center justify-between">
-              <label htmlFor="password" className="text-base font-medium text-white">
+              <label htmlFor="confirmPassword" className="text-base font-medium text-white">
           
                 Confirm Password
               </label>
@@ -98,13 +123,15 @@ function Signup() {
                 className="flex h-10 w-full rounded-md border text-white border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                 type="password"
                 placeholder="Confirm Password"
-                id="password"
+                id="confirmPassword"
+                onChange={(e)=>{
+                  setConfirmPassword && setConfirmPassword(e.target.value)}}
               />
             </div>
           </div>
           <div>
             <button
-              type="button"
+              type="button" onClick={handleFormSubmit}
               className="inline-flex w-full items-center justify-center rounded-md bg-white px-3.5 py-2.5 font-semibold leading-7 text-black hover:bg-black/80 hover:text-white"
             >
               Create Account
@@ -115,9 +142,6 @@ function Signup() {
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
                 className="ml-2"
               >
                 <line x1="5" y1="12" x2="19" y2="12"></line>

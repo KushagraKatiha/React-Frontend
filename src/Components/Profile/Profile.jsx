@@ -2,11 +2,11 @@ import React from 'react'
 
 function Profile() {
   return (
-    <section className='h-screen w-full flex bg-cover bg-center bg-no-repeat' 
+    <section className='h-100 w-full flex bg-cover bg-center bg-no-repeat' 
     style={{
       backgroundImage: `url('https://images.pexels.com/photos/5435304/pexels-photo-5435304.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')`}}
     >
-        <div className='m-auto w-auto h-1/2 backdrop-blur-md border border-white rounded-lg flex flex-col justify-center items-center gap-9 px-5 sm:w-1/2 lg:1/3'>
+        <div className='m-auto w-auto h-1/2 backdrop-blur-md border border-white rounded-lg flex flex-col justify-center items-center gap-9 px-5 sm:w-1/2 md:w-1/3 lg:1/3'>
           <h1 className='text-white text-3xl'>Your Details</h1>
             <div className='flex w-full gap-10 justify-center items-center'>
             <div className='border-2 border-white rounded-full'>
