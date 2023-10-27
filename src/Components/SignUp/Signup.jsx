@@ -1,26 +1,40 @@
-import React, {useEffect, useState} from 'react'
+
+import React, {useState} from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 function Signup() {
+
   
-  const [name, setName] = useState('')
-  const [username, setUsername] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [confirmPassword, setConfirmPassword] = useState('') 
+  const [name, setName] = useState("")
+  const [username, setUsername] = useState("")
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [confirmPassword, setConfirmPassword] = useState("") 
 
   let handleFormSubmit = async ()=>{
-    await axios.put('http://localhost:3000/adduser',{
-            name: name,
-            username: username,
-            email: email,
-            password: password,
-            confirmPassword: confirmPassword
-          })
-          .then((res)=>res.json)
-          .then((res)=>console.log(res))
-          .catch((err)=>console.log(err.message))
+    try {
+      const response = await axios.post('http://localhost:3000/adduser', {
+        name,
+        username,
+        email,
+        password,
+        confirmPassword
+      });
+      console.log(response.data); // Assuming the response contains JSON data.
+      console.log(response.status);
+      if (response.status === 201) {
+        alert('User created successfully');
+        setName("")
+        setUsername("")
+        setEmail("")
+        setPassword("")
+        setConfirmPassword("")
+      }
+    } catch (error) {
+      console.error(error);
+    }
+    
   }
 
   return (
@@ -42,7 +56,7 @@ function Signup() {
         >
           <p>Sign In</p>
         </Link>
-      <form action="#" method="POST" className="mt-8">
+      <form className="mt-8">
         {/* Full Name */}
         <div className="space-y-5">
           <div>
@@ -56,6 +70,7 @@ function Signup() {
                 type="text"
                 placeholder="Full Name"
                 id="name"
+                value={name}
                 onChange={(e)=>{setName && setName(e.target.value)}}
               />
             </div>
@@ -73,6 +88,7 @@ function Signup() {
                 type="text"
                 placeholder="User Name"
                 id="username"
+                value={username}
                 onChange={(e)=>{setUsername && setUsername(e.target.value)}}
               />
             </div>
@@ -88,6 +104,7 @@ function Signup() {
                 type="email"
                 placeholder="Email"
                 id="email"
+                value={email}
                 onChange={(e)=>{setEmail && setEmail(e.target.value)}}
               />
             </div>
@@ -105,6 +122,7 @@ function Signup() {
                 type="password"
                 placeholder="Password"
                 id="password"
+                value={password}
                 onChange={(e)=>{setPassword && setPassword(e.target.value)}}
               />
             </div>
@@ -124,6 +142,7 @@ function Signup() {
                 type="password"
                 placeholder="Confirm Password"
                 id="confirmPassword"
+                value={confirmPassword}
                 onChange={(e)=>{
                   setConfirmPassword && setConfirmPassword(e.target.value)}}
               />
