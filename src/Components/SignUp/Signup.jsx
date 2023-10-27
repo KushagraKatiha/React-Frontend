@@ -4,17 +4,19 @@ import { Link } from 'react-router-dom'
 function Signup() {
   return (
     <>
-    <section className="rounded-md h-screen w-full bg-black/80 p-2">
-  <div className="flex items-center justify-center w-full h-full bg-white">
+    <section className='h-screen w-full flex bg-cover bg-center bg-no-repeat' 
+    style={{
+      backgroundImage: `url('https://images.pexels.com/photos/5435304/pexels-photo-5435304.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')`}}>
+  <div className="flex m-auto backdrop-blur-md py-7 px-10 border-white border rounded-lg items-center ">
     <div className="xl:mx-auto xl:w-full xl:max-w-sm 2xl:max-w-md">
-      <h2 className="text-2xl font-bold leading-tight text-black">
+      <h2 className="text-3xl font-bold leading-tight text-white">
         Sign up to create account
       </h2>
-      <p className="mt-2 text-base text-gray-600">
-        Already have an account?{" "}
+      <p className="mt-2 text-base text-white">
+        Already have an account ?
         <Link
           to={'/signin'}
-          className="font-medium text-black transition-all duration-200 hover:underline"
+          className="font-medium text-blue-600 transition-all duration-200 hover:underline"
         >
           <p>Sign In</p>
         </Link>
@@ -23,13 +25,13 @@ function Signup() {
         {/* Full Name */}
         <div className="space-y-5">
           <div>
-            <label htmlFor="name" className="text-base font-medium text-gray-900">
-              {" "}
-              Full Name{" "}
+            <label htmlFor="name" className="text-base font-medium text-white">
+            
+              Full Name
             </label>
             <div className="mt-2">
               <input
-                className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed text-white  disabled:opacity-50"
                 type="text"
                 placeholder="Full Name"
                 id="name"
@@ -39,13 +41,13 @@ function Signup() {
 
           {/* Username */}
           <div>
-            <label htmlFor="name" className="text-base font-medium text-gray-900">
-              {" "}
-              Username{" "}
+            <label htmlFor="name" className="text-base font-medium text-white">
+        
+              Username
             </label>
             <div className="mt-2">
               <input
-                className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed text-white  disabled:opacity-50"
                 type="text"
                 placeholder="User Name"
                 id="name"
@@ -53,13 +55,13 @@ function Signup() {
             </div>
           </div>
           <div>
-            <label htmlFor="email" className="text-base font-medium text-gray-900">
-              {" "}
-              Email address{" "}
+            <label htmlFor="email" className="text-base font-medium text-white">
+   
+              Email address
             </label>
             <div className="mt-2">
               <input
-                className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed text-white  disabled:opacity-50"
                 type="email"
                 placeholder="Email"
                 id="email"
@@ -68,14 +70,14 @@ function Signup() {
           </div>
           <div>
             <div className="flex items-center justify-between">
-              <label htmlFor="password" className="text-base font-medium text-gray-900">
-                {" "}
-                Password{" "}
+              <label htmlFor="password" className="text-base font-medium text-white">
+              
+                Password
               </label>
             </div>
             <div className="mt-2">
               <input
-                className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed text-white   disabled:opacity-50"
                 type="password"
                 placeholder="Password"
                 id="password"
@@ -86,14 +88,14 @@ function Signup() {
           {/* Confirm Password */}
           <div>
             <div className="flex items-center justify-between">
-              <label htmlFor="password" className="text-base font-medium text-gray-900">
-                {" "}
-                Confirm Password{" "}
+              <label htmlFor="password" className="text-base font-medium text-white">
+          
+                Confirm Password
               </label>
             </div>
             <div className="mt-2">
               <input
-                className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                className="flex h-10 w-full rounded-md border text-white border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                 type="password"
                 placeholder="Confirm Password"
                 id="password"
@@ -103,9 +105,9 @@ function Signup() {
           <div>
             <button
               type="button"
-              className="inline-flex w-full items-center justify-center rounded-md bg-black px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-black/80"
+              className="inline-flex w-full items-center justify-center rounded-md bg-white px-3.5 py-2.5 font-semibold leading-7 text-black hover:bg-black/80 hover:text-white"
             >
-              Create Account{" "}
+              Create Account
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
