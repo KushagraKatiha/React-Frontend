@@ -1,12 +1,41 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 
 function Profile() {
+
+  const navigate = useNavigate();
+
   const [name, setName] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
 
-    async function fetchUserDetails() {
+  let handleDelete = async ()=>{
+    const response = await axios.delete('http://localhost:3000/deleteuser' , {withCredentials: true})
+    if(response.status === 200){
+      alert('User Deleted ! Login with another account')
+      navigate('/signin');
+    }
+  }  
+
+  let handleLogOut = async () => {
+    try {
+      const response = await axios.get('http://localhost:3000/logout', { withCredentials: true });
+  
+      if (response.status === 200) {
+        alert('Logged Out!');
+        navigate('/signin');
+      } else {
+        alert('Logout failed'); // Handle other status codes as needed
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+  
+
+  async function fetchUserDetails() {
       try {
         const response = await axios.get('http://localhost:3000/userdetails', {withCredentials: true});
 
@@ -26,7 +55,7 @@ function Profile() {
         console.log(error.message);
         console.error(error);
       }
-    }
+  }
 
     fetchUserDetails();
   
@@ -49,10 +78,12 @@ function Profile() {
           </div>
         </div>
         <div className='w-full flex justify-around'>
-          <button className='px-10 text-white bg-red-600 hover:bg-red-800 rounded-lg cursor-pointer py-2'>Delete User !</button>
+          <button className='px-10 text-white bg-red-600 hover:bg-red-800 rounded-lg cursor-pointer py-2' 
+            onClick={handleDelete}
+          >Delete User !</button>
           <button className='px-10 text-white bg-green-500 hover:bg-green-800 rounded-lg cursor-pointer py-2'>Update User </button>
         </div>
-        <button className='px-10 text-white bg-blue-600 hover:bg-blue-900 rounded-lg cursor-pointer py-2'>Logout !</button>
+        <button onClick={handleLogOut} className='px-10 text-white bg-blue-600 hover:bg-blue-900 rounded-lg cursor-pointer py-2'>Logout !</button>
       </div>
     </section>
   );

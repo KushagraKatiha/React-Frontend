@@ -27,8 +27,9 @@ function Signin() {
       if(response.status !== 400){
         navigate('/profile');
       }
+
     } catch (error) {
-      alert(error.message)
+      alert("Invalid Credentials")
       console.error(error);
     }
     
@@ -65,7 +66,7 @@ function Signin() {
                       type="email"
                       value={input}
                       onChange={(e)=>setInput(e.target.value)}
-                      placeholder="Email or Username"
+                      placeholder="Email"
                     />
                   </div>
                 </div>
@@ -93,7 +94,7 @@ function Signin() {
                     onClick={handleFormSubmit}
                     className="inline-flex w-full items-center justify-center rounded-md bg-white px-3.5 py-2.5 font-semibold leading-7 text-black hover:bg-black/80 hover:text-white"
                   >
-                    Get started{" "}
+                    Get started
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
