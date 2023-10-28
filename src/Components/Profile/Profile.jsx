@@ -36,18 +36,23 @@ function Profile() {
         backgroundImage: `url('https://images.pexels.com/photos/5435304/pexels-photo-5435304.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')`
       }}
     >
-      <div className='m-auto w-auto h-1/2 backdrop-blur-md border border-white rounded-lg flex flex-col justify-center items-center gap-9 px-5 sm:w-1/2 md:w-1/3 lg:1/3'>
+      <div className='m-auto w-4/5 md:w-2/4 md:h-5/6 h-auto backdrop-blur-md border border-white rounded-lg flex flex-col justify-center items-center md:gap-5 gap-4 px-5 py-5 '>
         <h1 className='text-white text-3xl'>Your Details</h1>
-        <div className='flex w-full gap-10 justify-center items-center'>
-          <div className='border-2 border-white rounded-full'>
-            <img className="rounded-full h-40 w-40" src="https://images.pexels.com/photos/18078283/pexels-photo-18078283/free-photo-of-a-man-sitting.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="profile img" />
+        <div className='flex gap-5 justify-center w-full h-5/6 items-center'>
+          <div className='border-2 w-[30%] h-[30%] md:h-[60%] md:w-[50%] border-white rounded-full'>
+            <img className="rounded-full w-full h-full" src="https://images.pexels.com/photos/18078283/pexels-photo-18078283/free-photo-of-a-man-sitting.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="profile img" />
           </div>
-          <div className='flex flex-col gap-5 bg-slate-800 px-10 py-8 border-b-4 border-white rounded-lg text-white text-lg underline'>
-            <p>Name: {name}</p>
-            <p>Username: {username}</p>
-            <p>Email: {email}</p>
+          <div className='flex flex-col md:w-3/4 md:h-3/4 gap-5 justify-center bg-slate-800 px-8 py-8 border-b-4 border-white rounded-lg text-white md:text-lg text-sm '>
+            <p className='text-base font-bold md:text-xl text-orange-400'>Name: <span className='font-semibold underline text-xs md:text-lg text-white'>{`${name}`}</span></p>
+            <p className='text-base font-bold md:text-xl text-orange-400'>Username: <span className='underline font-semibold text-white text-xs md:text-lg '>{`@${username}`}</span></p>
+            <p className='text-base font-bold md:text-xl text-orange-400'>Email: <span className='underline text-xs text-white font-semibold md:text-lg '>{`${email}`}</span></p>
           </div>
         </div>
+        <div className='w-full flex justify-around'>
+          <button className='px-10 text-white bg-red-600 hover:bg-red-800 rounded-lg cursor-pointer py-2'>Delete User !</button>
+          <button className='px-10 text-white bg-green-500 hover:bg-green-800 rounded-lg cursor-pointer py-2'>Update User </button>
+        </div>
+        <button className='px-10 text-white bg-blue-600 hover:bg-blue-900 rounded-lg cursor-pointer py-2'>Logout !</button>
       </div>
     </section>
   );
