@@ -1,18 +1,21 @@
-
+import { useNavigate } from 'react-router-dom';
 import React, {useState} from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 function Signup() {
-
+  
+  const navigate = useNavigate();
   
   const [name, setName] = useState("")
   const [username, setUsername] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [confirmPassword, setConfirmPassword] = useState("") 
-
+  
   let handleFormSubmit = async ()=>{
+
+
     try {
       const response = await axios.post('http://localhost:3000/adduser', {
         name,
@@ -30,6 +33,9 @@ function Signup() {
         setEmail("")
         setPassword("")
         setConfirmPassword("")
+      }
+      if(response.status !== 400){
+        navigate('/signin');
       }
     } catch (error) {
       console.error(error);

@@ -1,8 +1,11 @@
+import { useNavigate } from 'react-router-dom'
 import React, {useState} from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 function Signin() {
+
+  const navigate = useNavigate()
 
   const [input, setInput] = useState("")
   const [password, setPassword] = useState("")
@@ -12,14 +15,17 @@ function Signin() {
       const response = await axios.post('http://localhost:3000/getuser', {
         email: input,
         password: password,
-      });
+      }, {withCredentials: true});
       console.log(response.data); // Assuming the response contains JSON data.
       console.log(response.status);
       if (response.status === 200) {
         alert('User Login successfull');
-        
         setInput("")
         setPassword("")
+      }
+
+      if(response.status !== 400){
+        navigate('/profile');
       }
     } catch (error) {
       alert(error.message)
@@ -42,7 +48,7 @@ function Signin() {
               Don&#x27;t have an account? &nbsp; 
             </p>
             <Link 
-                to={'/signup'}
+                to={'/'}
               >
                <span className="font-semibold text-blue-600 transition-all duration-200 hover:underline">Create a free account</span> 
               </Link>
