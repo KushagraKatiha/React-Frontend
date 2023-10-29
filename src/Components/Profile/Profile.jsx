@@ -11,6 +11,10 @@ function Profile() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
 
+  let handleUpdate = () => {
+    navigate('/updateuser');
+  }
+
   let handleDelete = async ()=>{
     const response = await axios.delete('http://localhost:3000/deleteuser' , {withCredentials: true})
     if(response.status === 200){
@@ -81,7 +85,7 @@ function Profile() {
           <button className='px-10 text-white bg-red-600 hover:bg-red-800 rounded-lg cursor-pointer py-2' 
             onClick={handleDelete}
           >Delete User !</button>
-          <button className='px-10 text-white bg-green-500 hover:bg-green-800 rounded-lg cursor-pointer py-2'>Update User </button>
+          <button onClick={handleUpdate} className='px-10 text-white bg-green-500 hover:bg-green-800 rounded-lg cursor-pointer py-2'>Update User </button>
         </div>
         <button onClick={handleLogOut} className='px-10 text-white bg-blue-600 hover:bg-blue-900 rounded-lg cursor-pointer py-2'>Logout !</button>
       </div>

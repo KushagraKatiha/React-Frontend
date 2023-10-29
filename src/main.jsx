@@ -6,6 +6,7 @@ import Signin from './Components/SignIn/Signin.jsx'
 import Signup from './Components/SignUp/Signup.jsx'
 import Profile from './Components/Profile/Profile.jsx'
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
+import UpdateUser from './Components/UpdatePage/UpdatePage.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -14,6 +15,7 @@ const router = createBrowserRouter(
         <Route path='/' element={<Signup/>}/>
         <Route path="signin" element={<Signin/>}/>
         <Route path="profile" element={<Profile/>}/>
+        <Route path="updateuser" element={<UpdateUser/>}/>
  
     </Route>
   )
