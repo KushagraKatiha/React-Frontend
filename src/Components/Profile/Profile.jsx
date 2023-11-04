@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -61,7 +61,7 @@ function Profile() {
       }
   }
 
-    fetchUserDetails();
+ fetchUserDetails()
   
   return (
     <section className='h-screen w-full flex bg-cover bg-center bg-repeat-y'

@@ -38,14 +38,14 @@ function Signup() {
         navigate('/signin');
       }
     } catch (error) {
-      console.error(error);
+      console.error(error.message);
     }
 
   }
 
   return (
     <>
-      <section className='h-screen w-full flex bg-cover bg-center bg-no-repeat'
+      <section className='h-screen w-full flex bg-cover bg-center bg-repeat-y'
         style={{
           backgroundImage: `url('https://images.pexels.com/photos/5435304/pexels-photo-5435304.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')`
         }}>
